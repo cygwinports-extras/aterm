@@ -1,0 +1,13 @@
+DESCRIPTION="AfterStep virtual terminal"
+HOMEPAGE="http://www.afterstep.org/aterm.php"
+SRC_URI="mirror://sourceforge/aterm/${P}.tar.bz2"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygconf \
+		--enable-xgetdefault \
+		--disable-memset \
+		--with-terminfo=/usr/share/terminfo
+	cygmake
+}
